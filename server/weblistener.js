@@ -54,7 +54,8 @@ var WebListener = module.exports = function (web_config) {
             }
         }
 
-        hs = spdy.createServer(opts);
+        //hs = spdy.createServer(opts);
+		hs = https.createServer(opts);
 
         hs.listen(web_config.port, web_config.address, function () {
             that.emit('listening');
