@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <base target="_blank">
 
-<title> Kiwi IRC </title>
+<title> Ambreen Games Chat </title>
 
-<link rel="shortcut icon" href="<%base_path%>/assets/img/favicon.ico">
+<link rel="shortcut icon" href="<%base_path%>/assets/img/favicon2.ico">
 
 <link rel="stylesheet" type="text/css" href="<%base_path%>/assets/css/style.css?t=<%build_time%>" />
 <link rel="stylesheet" type="text/css" href="<%base_path%>/assets/css/font-awesome.min.css" />
@@ -22,7 +22,7 @@
                     <ul class="main">
                         <li class="settings"><i class="fa fa-cogs" title="Settings"></i></li>
                         <li class="startup"><i class="fa fa-home" title="Home"></i></li>
-                        <li><a href="https://kiwiirc.com/" target="_blank"><img src="<%base_path%>/assets/img/ico.png" alt="KiwiIRC" title="KiwiIRC" /></a></li>
+                        <li><a href="https://ambreengames.com/" target="_blank"><img src="<%base_path%>/assets/img/ico2.png" alt="Ambreen Games" title="Ambreen Games" /></a></li>
                     </ul>
                 </div>
 
@@ -146,10 +146,14 @@
 
     <script type="text/html" id="tmpl_new_connection_info">
         <div style="margin:1em 20px;">
-            <img src="<%base_path%>/assets/img/ico.png" alt="KiwiIRC Logo" title="Kiwi IRC" style="display:block; margin:0 auto;"/> <br />
-            <p style="font-style:italic;">A <strong>hand-crafted IRC client</strong> that you can enjoy. Designed to be used <strong>easily</strong> and <strong>freely</strong>.</p>
+            <img src="<%base_path%>/assets/img/ambreengames.png" alt="Ambreen Games" title="Ambreen Games" style="display:block; margin:0 auto;"/> <br />
+            <p style="font-style:italic;">Welcome to the <strong>Ambreen Games Chat</strong>!</p>
 
-            <p style="font-size:0.9em;margin-top:2em;">Peek at the <a href="https://www.kiwiirc.com/">Kiwi IRC homepage</a> for more information or to find out how to embed it on your own website. Looking for source code? Try the <a href="http://github.com/prawnsalad/KiwiIRC/">GitHub</a> page. This network of people may not be associated with Kiwi IRC itself.</p>
+            <p style="font-size:0.9em;margin-top:2em;">The use of this service is subject to the integral acceptance of our <a href="https://id.ambreengames.com/termsandconditions" target="_blank">T&amp;C</a>.</p>
+			
+			<p style="font-size:0.9em;margin-top:2em;"><a href="https://id.ambreengames.com/privacypolicy" target="_blank">Privacy Policy</a> | <a href="https://id.ambreengames.com/impressum" target="_blank">Impressum</a></p>
+			
+			<p style="font-size:0.7em;margin-top:2em;">This software is a <i>fork</i> of the <a href="https://github.com/prawnsalad/KiwiIRC" rel="nofollow" target="_blank">KiwiIRC</a> project, originally released under the terms of the AGPL-3.0 license.</p>
         </div>
     </script>
 
@@ -234,9 +238,6 @@
                     </div>
                 </form>
 
-                <a class="kiwi_logo" href="https://kiwiirc.com/" target="_blank">
-                    <h1><span><%= powered_by %></span> <img src="<%base_path%>/assets/img/ico.png" alt="KiwiIRC Logo" title="Kiwi IRC" /></h1>
-                </a>
             </div>
         </div>
     </script>
@@ -594,13 +595,6 @@
             });
         });
 
-        // prawnsalad: Why is the below script_promise in its own .then()?
-        // M2Ys4U: prawnsalad: either of the first two promises can resolve the
-        // third one, but the third one has a then() on it already, so the
-        // then() on the all() makes it wait for the then() on the script promise
-        // to resolve.
-        //
-        // Promises - simple.
         Promise.all([onload_promise, settings_promise])
         .then(function(){return script_promise})
         .then(function startApp() {
